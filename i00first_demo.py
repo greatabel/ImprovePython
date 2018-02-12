@@ -4,8 +4,35 @@
 # 除计算费用，还要为顾客积分，积分根据租片种类是否为新片有不同
 
 
+# 故意写比较糟糕的第一版
+class Movie:
+    regular = 0
+    new_release = 1
+    childrens = 2
+
+    def __init__(self, title, pricecode):
+        self.title = title
+        self.pricecode = pricecode
+
+
+class Rental:
+    def __init__(self, movie, days_rented):
+        self.movie = movie
+        self.days_rented = days_rented
+
+
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.rentals = []
+
+    def add_rental(rental):
+        self.rentals.append(rental)
+
+
 def main():
     ""
+
 
 if __name__ == "__main__":
     main()
