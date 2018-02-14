@@ -26,10 +26,10 @@ class Customer:
         self.name = name
         self.rentals = []
 
-    def add_rental(rental):
+    def add_rental(self, rental):
         self.rentals.append(rental)
 
-    def statement():
+    def statement(self):
         total_amount = 0
         frequent_renter_points = 0
         result = "Rental record for " + self.name + "\n"
@@ -45,11 +45,35 @@ class Customer:
                 this_amount += 1.5
                 if rental.days_rented > 3:
                     this_amount += (rental.days_rented - 3) * 1.5
-            
+
+            frequent_renter_points += 1
+            if rental.movie.pricecode == Movie.new_release and \
+                rental.days_rented > 1:
+                frequent_renter_points += 1
+
+            result += "\t" + rental.movie.title + "\t" +\
+                        str(this_amount) + "\n"
+            total_amount += this_amount
+
+        result += "Amount owed is " + str(total_amount) + "\n"
+        result += "You earned " + str(frequent_renter_points) + \
+                    " frequent renter points"
+        return result
+
 
 
 def main():
-    ""
+    c0 = Customer("Bill")
+    movie0 = Movie("Die hard", 0)
+    movie1 = Movie("Fifty Shades Freed", 1)
+    movie2 = Movie("Peter Rabbit", 2)
+    rental0 = Rental(movie0, 3)
+    rental1 = Rental(movie1, 4)
+    rental2 = Rental(movie2, 5)
+    c0.add_rental(rental0)
+    c0.add_rental(rental1)
+    c0.add_rental(rental2)
+    print(c0.statement())
 
 
 if __name__ == "__main__":
