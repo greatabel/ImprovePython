@@ -34,12 +34,12 @@ class Customer:
     def add_rental(self, rental):
         self.rentals.append(rental)
 
+
+
     def statement(self):
-        total_amount = 0
-        frequent_renter_points = 0
-        result = "Rental record for " + self.name + "\n"
-        this_amount = 0
-        for rental in self.rentals:
+        
+        def amount_for(rental):
+            this_amount = 0
             if rental.movie.pricecode == Movie.regular:
                 this_amount += 2
                 if rental.days_rented > 2:
@@ -50,6 +50,14 @@ class Customer:
                 this_amount += 1.5
                 if rental.days_rented > 3:
                     this_amount += (rental.days_rented - 3) * 1.5
+            return this_amount
+
+        total_amount = 0
+        frequent_renter_points = 0
+        result = "Rental record for " + self.name + "\n"
+        this_amount = 0
+        for rental in self.rentals:
+            this_amount = amount_for(rental)
 
             frequent_renter_points += 1
             if rental.movie.pricecode == Movie.new_release and \
