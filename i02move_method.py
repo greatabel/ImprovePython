@@ -54,9 +54,10 @@ class Customer:
         total_amount = 0
         frequent_renter_points = 0
         result = "Rental record for " + self.name + "\n"
-        this_amount = 0
+        # this_amount 变得多余， 运用 replace temp with query
+        # this_amount = 0
         for rental in self.rentals:
-            this_amount = rental.get_charge()
+            # this_amount = rental.get_charge()
 
             frequent_renter_points += 1
             if rental.movie.pricecode == Movie.new_release and \
@@ -64,8 +65,8 @@ class Customer:
                 frequent_renter_points += 1
 
             result += "\t" + rental.movie.title + "\t" +\
-                        str(this_amount) + "\n"
-            total_amount += this_amount
+                        str(rental.get_charge()) + "\n"
+            total_amount += rental.get_charge()
 
         result += "Amount owed is " + str(total_amount) + "\n"
         result += "You earned " + str(frequent_renter_points) + \
