@@ -37,20 +37,22 @@ class Customer:
 
 
     def statement(self):
-
-        def amount_for(rental):
-            this_amount = 0
-            if rental.movie.pricecode == Movie.regular:
-                this_amount += 2
-                if rental.days_rented > 2:
-                    this_amount += (rental.days_rented - 2) * 1.5
-            elif rental.movie.pricecode == Movie.new_release:
-                this_amount += rental.days_rented  * 3
-            elif rental.movie.pricecode == Movie.childrens:
-                this_amount += 1.5
-                if rental.days_rented > 3:
-                    this_amount += (rental.days_rented - 3) * 1.5
-            return this_amount
+        # 重构步骤的本质: 每次修改的幅度都很小，任何错误都很容易发现
+        def amount_for(a_rental):
+            # 更改变量名称值得吗？绝对值得，好的代码应该清楚表达出
+            # 自己功能，变量名称是代码清晰的关键
+            result = 0
+            if a_rental.movie.pricecode == Movie.regular:
+                result += 2
+                if a_rental.days_rented > 2:
+                    result += (a_rental.days_rented - 2) * 1.5
+            elif a_rental.movie.pricecode == Movie.new_release:
+                result += a_rental.days_rented  * 3
+            elif a_rental.movie.pricecode == Movie.childrens:
+                result += 1.5
+                if a_rental.days_rented > 3:
+                    result += (a_rental.days_rented - 3) * 1.5
+            return result
 
         total_amount = 0
         frequent_renter_points = 0
@@ -87,9 +89,12 @@ def main():
     c0.add_rental(rental0)
     c0.add_rental(rental1)
     c0.add_rental(rental2)
+
     # 测试代码：
     assert ('Amount owed is 20.0' in c0.statement() )
     assert ('You earned 4 frequent renter points' in c0.statement() )
+
+    print(c0.statement())
 
 
 
