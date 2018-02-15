@@ -1,5 +1,6 @@
 # What, Why?
-The book 'refactoring improving the design of existing code'
+The book 
+[refactoring: improving the design of existing code](https://book.douban.com/subject/1229923)
 only has Java version codes, I am not a fun of Java but interested in <b>Python</b>,
 so I made the Python version demos of the book as an exercise.
 <hr>
