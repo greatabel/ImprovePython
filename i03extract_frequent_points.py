@@ -55,6 +55,7 @@ class Customer:
         self.rentals.append(rental)
 
     def statement(self):
+
         def get_total_charge():
             total_amount = 0
             for rental in self.rentals:
@@ -63,13 +64,10 @@ class Customer:
 
         frequent_renter_points = 0
         result = "Rental record for " + self.name + "\n"
-
         for rental in self.rentals:
-
             frequent_renter_points += rental.get_frequent_renter_points()
             result += "\t" + rental.movie.title + "\t" +\
                         str(rental.get_charge()) + "\n"
-
 
         result += "Amount owed is " + str(get_total_charge()) + "\n"
         result += "You earned " + str(frequent_renter_points) + \
