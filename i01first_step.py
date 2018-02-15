@@ -37,7 +37,7 @@ class Customer:
 
 
     def statement(self):
-        
+
         def amount_for(rental):
             this_amount = 0
             if rental.movie.pricecode == Movie.regular:
@@ -71,6 +71,7 @@ class Customer:
         result += "Amount owed is " + str(total_amount) + "\n"
         result += "You earned " + str(frequent_renter_points) + \
                     " frequent renter points"
+
         return result
 
 
@@ -86,7 +87,10 @@ def main():
     c0.add_rental(rental0)
     c0.add_rental(rental1)
     c0.add_rental(rental2)
-    print(c0.statement())
+    # 测试代码：
+    assert ('Amount owed is 20.0' in c0.statement() )
+    assert ('You earned 4 frequent renter points' in c0.statement() )
+
 
 
 if __name__ == "__main__":
