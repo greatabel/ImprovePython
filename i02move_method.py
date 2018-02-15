@@ -25,6 +25,22 @@ class Rental:
         self.movie = movie
         self.days_rented = days_rented
 
+    # 重构步骤的本质: 每次修改的幅度都很小，任何错误都很容易发现
+    def get_charge(self):
+        # 更改变量名称值得吗？绝对值得，好的代码应该清楚表达出
+        # 自己功能，变量名称是代码清晰的关键
+        result = 0
+        if self.movie.pricecode == Movie.regular:
+            result += 2
+            if self.days_rented > 2:
+                result += (self.days_rented - 2) * 1.5
+        elif self.movie.pricecode == Movie.new_release:
+            result += self.days_rented  * 3
+        elif self.movie.pricecode == Movie.childrens:
+            result += 1.5
+            if self.days_rented > 3:
+                result += (self.days_rented - 3) * 1.5
+        return result
 
 class Customer:
     def __init__(self, name):
@@ -35,29 +51,12 @@ class Customer:
         self.rentals.append(rental)
 
     def statement(self):
-        # 重构步骤的本质: 每次修改的幅度都很小，任何错误都很容易发现
-        def amount_for(a_rental):
-            # 更改变量名称值得吗？绝对值得，好的代码应该清楚表达出
-            # 自己功能，变量名称是代码清晰的关键
-            result = 0
-            if a_rental.movie.pricecode == Movie.regular:
-                result += 2
-                if a_rental.days_rented > 2:
-                    result += (a_rental.days_rented - 2) * 1.5
-            elif a_rental.movie.pricecode == Movie.new_release:
-                result += a_rental.days_rented  * 3
-            elif a_rental.movie.pricecode == Movie.childrens:
-                result += 1.5
-                if a_rental.days_rented > 3:
-                    result += (a_rental.days_rented - 3) * 1.5
-            return result
-
         total_amount = 0
         frequent_renter_points = 0
         result = "Rental record for " + self.name + "\n"
         this_amount = 0
         for rental in self.rentals:
-            this_amount = amount_for(rental)
+            this_amount = rental.get_charge()
 
             frequent_renter_points += 1
             if rental.movie.pricecode == Movie.new_release and \
@@ -71,8 +70,8 @@ class Customer:
         result += "Amount owed is " + str(total_amount) + "\n"
         result += "You earned " + str(frequent_renter_points) + \
                     " frequent renter points"
-
         return result
+
 
 
 
