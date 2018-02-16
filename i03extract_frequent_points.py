@@ -62,15 +62,20 @@ class Customer:
                 total_amount += rental.get_charge()
             return total_amount
 
-        frequent_renter_points = 0
+        def get_total_frequent_renter_points():
+            frequent_renter_points = 0
+            for rental in self.rentals:
+                frequent_renter_points += rental.get_frequent_renter_points()
+            return frequent_renter_points
+
+
         result = "Rental record for " + self.name + "\n"
         for rental in self.rentals:
-            frequent_renter_points += rental.get_frequent_renter_points()
+
             result += "\t" + rental.movie.title + "\t" +\
                         str(rental.get_charge()) + "\n"
-
         result += "Amount owed is " + str(get_total_charge()) + "\n"
-        result += "You earned " + str(frequent_renter_points) + \
+        result += "You earned " + str(get_total_frequent_renter_points()) + \
                     " frequent renter points"
         return result
 
