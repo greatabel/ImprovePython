@@ -17,34 +17,37 @@ class Price(ABC):
     def get_price_code(self):
         pass
 
+    @abstractmethod
     def get_charge(self, days_rented):
-        result = 0
-        if self.get_price_code() == Movie.regular:
-            result += 2
-            if days_rented > 2:
-                result += (days_rented - 2) * 1.5
-        elif self.get_price_code() == Movie.new_release:
-            result += days_rented  * 3
-        elif self.get_price_code() == Movie.childrens:
-            result += 1.5
-            if days_rented > 3:
-                result += (days_rented - 3) * 1.5
-        return result
+        pass
 
 
 class ChildrenPrice(Price):
     def get_price_code(self):
         return Movie.childrens
 
+    def get_charge(self, days_rented):
+        result = 1.5
+        if days_rented > 3:
+            result += (days_rented - 3) * 1.5
+        return result
+
 class NewReleasePrice(Price):
     def get_price_code(self):
         return Movie.new_release
+
+    def get_charge(self, days_rented):
+        return days_rented  * 3
 
 class RegularPrice(Price):
     def get_price_code(self):
         return Movie.regular
 
-
+    def get_charge(self, days_rented):
+        result = 2
+        if days_rented > 2:
+            result += (days_rented - 2) * 1.5
+        return result
 
 class Movie:
     regular = 0
