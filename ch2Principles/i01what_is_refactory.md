@@ -7,4 +7,5 @@
 重构和性能优化？
 性能优化通常也不改变组件的行为（除了速度），但是2者出发点不同：
 性能优化往往让代码较难理解，但为了得到所需性能你不得不这么做。
+<br>
 <img src="/ch2Principles/2hats.jpeg" alt="test" title="Title" />
