@@ -10,6 +10,42 @@
 # 如果你发现自己需要为程序添加一个特性，而代码结构让你无法很方便地达成目的
 # 那就先重构那个程序，让特性的添加比较容易进行,然后再添加特性
 
+from abc import ABC, abstractmethod
+
+class Price(ABC):
+    @abstractmethod
+    def get_price_code(self):
+        pass
+
+    def get_charge(self, days_rented):
+        result = 0
+        if self.get_price_code() == Movie.regular:
+            result += 2
+            if days_rented > 2:
+                result += (days_rented - 2) * 1.5
+        elif self.get_price_code() == Movie.new_release:
+            result += days_rented  * 3
+        elif self.get_price_code() == Movie.childrens:
+            result += 1.5
+            if days_rented > 3:
+                result += (days_rented - 3) * 1.5
+        return result
+
+
+class ChildrenPrice(Price):
+    def get_price_code(self):
+        return Movie.childrens
+
+class NewReleasePrice(Price):
+    def get_price_code(self):
+        return Movie.new_release
+
+class RegularPrice(Price):
+    def get_price_code(self):
+        return Movie.regular
+
+
+
 class Movie:
     regular = 0
     new_release = 1
@@ -17,21 +53,22 @@ class Movie:
 
     def __init__(self, title, pricecode):
         self.title = title
-        self.pricecode = pricecode
+        # self.pricecode = pricecode
+        self.set_pricecode(pricecode)
+        self.pricecode = self.price.get_price_code()
+
+    def set_pricecode(self, arg):
+        if arg == Movie.regular:
+            self.price = RegularPrice()
+        elif arg == Movie.childrens:
+            self.price = ChildrenPrice()
+        elif arg == Movie.new_release:
+            self.price = NewReleasePrice()
+        else:
+            raise Exception("Wrong!")
 
     def get_charge(self, days_rented):
-        result = 0
-        if self.pricecode == Movie.regular:
-            result += 2
-            if days_rented > 2:
-                result += (days_rented - 2) * 1.5
-        elif self.pricecode == Movie.new_release:
-            result += days_rented  * 3
-        elif self.pricecode == Movie.childrens:
-            result += 1.5
-            if days_rented > 3:
-                result += (days_rented - 3) * 1.5
-        return result
+        return self.price.get_charge(days_rented)
 
     def get_frequent_renter_points(self, days_rented):
         if self.pricecode == Movie.new_release and \
