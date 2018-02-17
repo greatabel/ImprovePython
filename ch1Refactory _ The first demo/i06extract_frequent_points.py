@@ -7,11 +7,10 @@
 # 1.html显示
 # 2. 适应会改变的计价规则
 
-# 如果你发现自己需要为程序添加一个特性，而代码结构让你无法很方便地达成目的
-# 那就先重构那个程序，让特性的添加比较容易进行,然后再添加特性
-
 from abc import ABC, abstractmethod
 
+# 进入state模式花了力气，收获是：如果要修改价格有关行为
+# 或者添加新的定价标准，或者加入其他取决于价格的行为，程序修改容易很多
 class Price(ABC):
     @abstractmethod
     def get_price_code(self):
