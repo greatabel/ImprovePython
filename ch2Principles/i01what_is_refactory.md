@@ -14,6 +14,9 @@
 <b>&nbsp;重构时候</b>你就不能再添加功能，只管改进程序结构。此时不应该添加测试。<br>
 软件开发中，你可能发现自己经常变换帽子，可能来回切换，但是无论何时你都要清楚自己戴的是哪一顶帽子。
 
+<img src="https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/clean_window.jpg" height="60px" width="60px">
+
+
 
 
 
