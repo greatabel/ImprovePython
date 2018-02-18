@@ -14,8 +14,16 @@
 <b>&nbsp;重构时候</b>你就不能再添加功能，只管改进程序结构。此时不应该添加测试。<br>
 软件开发中，你可能发现自己经常变换帽子，可能来回切换，但是无论何时你都要清楚自己戴的是哪一顶帽子。
 
-<img src="https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/clean_window.jpg" height="60px" width="60px">
-
+<span style="color:red" >why 需要重构？</span>
+1. 改进软件设计<br>
+···重构就像整理代码，让所有东西回到应处的位置，代码结构流失是累积性。<br>
+···经常性的重构帮助代码维护自己该有的形态
+2. 让软件更容易理解<br>
+<img src="https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/clean_window.jpg" height="100" width="100">
+早起重构像：擦掉窗户上的污垢，使得你看的更远。重构把我带上更高理解层次；如果没有重构，我达不到这种层次。<br>
+3. 重构提高编程速度
+···重构帮助你更快速的开发程序<br>
+···良好的设计是快速开发的根本
 
 
 
