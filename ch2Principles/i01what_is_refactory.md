@@ -9,4 +9,11 @@
 性能优化往往让代码较难理解，但为了得到所需性能你不得不这么做。
 <br><br>
 
-![](2hats.jpeg)
+![](https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/2hats.jpeg)
+<b>&nbsp;添加新功能</b>时候，你不应该修改既有代码，只管添加新功能。。通过测试，衡量工作进度。<br>
+<b>&nbsp;重构时候</b>你就不能再添加功能，只管改进程序结构。此时不应该添加测试。<br>
+软件开发中，你可能发现自己经常变换帽子，可能来回切换，但是无论何时你都要清楚自己戴的是哪一顶帽子。
+
+
+
+
