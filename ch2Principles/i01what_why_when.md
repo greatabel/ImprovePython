@@ -25,7 +25,7 @@
 3. 重构提高编程速度
 ···重构帮助你更快速的开发程序<br>
 ···良好的设计是快速开发的根本
-<img src="https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/modao.jpg" height="100" width="100">
+<img src="https://raw.githubusercontent.com/greatabel/RefactoringPython/master/ch2Principles/modao.jpg" height="200" width="200">
 
 
 ![#b49ee5](https://placehold.it/15/b49ee5/000000?text=+) 
