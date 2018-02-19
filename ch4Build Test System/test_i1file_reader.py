@@ -1,6 +1,7 @@
 import unittest
 
 # https://stackoverflow.com/questions/17353213/init-for-unittest-testcase
+# pytest test_i1file_reader.py  -s --durations=0
 
 class TestFileReader(unittest.TestCase):
     def __init__(self, *args, **kwargs):
@@ -20,8 +21,6 @@ class TestFileReader(unittest.TestCase):
 
         self.assertEqual(len(lines),2)
         self.assertEqual(lines[0].split()[0], 'Bradman')
-
-
 
 
 if __name__ == "__main__":
