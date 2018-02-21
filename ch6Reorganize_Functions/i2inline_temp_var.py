@@ -17,3 +17,5 @@ print('一个临时变量，只被简单表达赋值一次，而它妨碍了其�
 def demo_refactory():
     an_order = Order()
     return an_order.base_price() > 1000
+
+
