@@ -1,5 +1,5 @@
 # python 没有final， 自己造一个只读的
-class ReadOnlyVar( object ):
+class MyPyFinal( object ):
     def __init__(self, value):
         self.value= value
 
@@ -18,7 +18,7 @@ class ReadOnlyVar( object ):
 
 def price():
     # price is base price - quantity discount * shipping
-    quantity = 10
+    quantity = 510
     item_price = 600
 
     return quantity * item_price - max(0, quantity - 500) * item_price * 0.05 \
@@ -30,11 +30,11 @@ print('old way which need to refactory:', t)
 print('开始改造ing:')
 def price_after_refactory():
     # price is base price - quantity discount * shipping
-    quantity = 10
+    quantity = 510
     item_price = 600
-    base_price = ReadOnlyVar(quantity * item_price).r()
-    quantity_discount = ReadOnlyVar(max(0, quantity - 500) * item_price * 0.05).r()
-    shipping = ReadOnlyVar(min(base_price * 0.1, 100)).r()
+    base_price = MyPyFinal(quantity * item_price).r()
+    quantity_discount = MyPyFinal(max(0, quantity - 500) * item_price * 0.05).r()
+    shipping = MyPyFinal(min(base_price * 0.1, 100)).r()
     return base_price - quantity_discount\
             + shipping
 
