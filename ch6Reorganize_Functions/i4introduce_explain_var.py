@@ -34,8 +34,9 @@ def price_after_refactory():
     item_price = 600
     base_price = ReadOnlyVar(quantity * item_price).r()
     quantity_discount = ReadOnlyVar(max(0, quantity - 500) * item_price * 0.05).r()
+    shipping = ReadOnlyVar(min(base_price * 0.1, 100)).r()
     return base_price - quantity_discount\
-            + min(base_price * 0.1, 100)
+            + shipping
 
 t_after = price_after_refactory()
 print('old way which after refactory:', t_after)
