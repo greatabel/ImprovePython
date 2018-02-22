@@ -1,4 +1,6 @@
 from termcolor import colored
+from myfinal import MyPyFinal
+
 
 def show(s,color='green'):
     print(colored(s, color, attrs=['reverse', 'blink']))
@@ -13,3 +15,7 @@ print(temp)
 show('当你程序中某个临时变量被赋值超过一次，但不是♻️循环变量，也不用于收集计算结果。')
 show('针对每次赋值，创造一个独立、对应的临时变量', 'red')
 
+prerimeter = MyPyFinal(2 * height * width).r()
+print(prerimeter)
+area = MyPyFinal(height * width).r()
+print(area)
