@@ -31,10 +31,13 @@ class Gamma:
         self.import_val3 = None
 
     def compute(self, account):
+        def import_thing():
+            if self.year_to_date - self.import_val1 > 100:
+                self.import_val2 -= 20
+                
         self.import_val1 = (self.input_val * self.quantity) +account.delta()
         self.import_val2 = (self.input_val * self.year_to_date) + 100
-        if self.year_to_date - self.import_val1 > 100:
-            self.import_val2 -= 20
+        import_thing()
         self.import_val3 = self.import_val2 * 7
         return self.import_val3 - 2 * self.import_val1
 
