@@ -39,8 +39,8 @@ def get_distance_after_refactory(time):
     secondary_time = time - delay
     if secondary_time > 0:
         primary_vel = primary_acc * delay
-        acc = (primary_force + secodary_force) / mass
-        result = primary_vel * secondary_time + 0.5 * acc * secondary_time \
+        secondary_acc = MyPyFinal((primary_force + secodary_force) / mass).r()
+        result = primary_vel * secondary_time + 0.5 * secondary_acc * secondary_time \
                  * secondary_time
     return result
 
