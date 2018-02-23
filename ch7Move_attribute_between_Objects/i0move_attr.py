@@ -37,20 +37,14 @@ class AccountType:
 at = Account(random_int)
 print('旧模式下：' + show(at.bank_charge()))
 
-print(show('开始改造：'))
+print(show('开始改造：-------》〉》'))
 class Account_afterRefactory:
     def __init__(self, days_overdrawn=0):
         self.type = AccountType_afterRefactory()
         self.days_overdrawn = days_overdrawn
 
     def over_draft_charge(self):
-        if self.type.is_premium():
-            result = 10
-            if self.days_overdrawn > 7:
-                result + (self.days_overdrawn - 7) * 0.85
-            return result
-        else:
-            return self.days_overdrawn * 1.75
+        return self.type.over_draft_charge(self.days_overdrawn)
 
     def bank_charge(self):
         result = 4.5
@@ -61,6 +55,15 @@ class Account_afterRefactory:
 class AccountType_afterRefactory:
     def is_premium(self):
         return random_bool
+
+    def over_draft_charge(self, days_overdrawn):
+        if self.is_premium():
+            result = 10
+            if days_overdrawn > 7:
+                result + (days_overdrawn - 7) * 0.85
+            return result
+        else:
+            return days_overdrawn * 1.75
 
 at1 = Account_afterRefactory(random_int)
 print('新式下：' + show(at1.bank_charge(), 'red'))
