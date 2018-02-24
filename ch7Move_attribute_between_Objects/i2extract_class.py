@@ -26,9 +26,6 @@ class Person_afterRefactory(object):
 
         self.telephone_number = telephone_number
 
-    def get_office_areacode(self):
-        return self.telephone_number.area_code
-
     def get_telephone_number(self):
         return "(" + self.telephone_number.area_code + ") " + self.telephone_number.number
 
