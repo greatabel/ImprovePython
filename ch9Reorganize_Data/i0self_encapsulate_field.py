@@ -13,3 +13,15 @@ class IntRange:
 
 r = IntRange(0, 10)
 print(r.includes(2), r.includes(100))
+
+
+class CappedRange(IntRange):
+    def __init__(self, low, high, cap):
+        IntRange.__init__(self, low, high)
+        self.cap = cap
+    
+    def get_high(self):
+        return min(self.cap, self.high)
+
+c = CappedRange(0, 10, 5)
+print(c.includes(2), c.includes(100), c.get_high())
