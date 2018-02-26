@@ -39,4 +39,4 @@ class Manager(Employee):
     pass
 
 c2 = Employee.get_instnace(2)
-print(show(c2.type))
+print(show(c2.type, 'red'))
