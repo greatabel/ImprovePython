@@ -9,6 +9,8 @@ def special_calculate(x):
 
 t0 = special_calculate(4)
 # t1 = special_calculate(-4)
+print('某段代码对程序状态作出某种假设' + 
+    show(' 用断言明确表现这种假设'))
 print('- · - - · 开始改造 - - · - - · - ')
 
 
