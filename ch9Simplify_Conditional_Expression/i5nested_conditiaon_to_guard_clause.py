@@ -1,0 +1,1 @@
+from mycolor import show
