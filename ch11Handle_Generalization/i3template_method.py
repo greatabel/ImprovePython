@@ -19,21 +19,30 @@ class Statement:
 class HtmlStatement(Statement):
 
     def header_string(self):
-        print "<head> hello </head>"
+        print("<head> hello </head>")
 
     def each_rental_string(self):
-        print "<br/>test<br/><hr>"
+        print("<br/>test<br/><hr>")
 
     def footer_string(self):
-        print "<p> You owe it </p>"
+        print("<p> You owe it </p><br/>")
 
 class TextStatement(Statement):
 
     def header_string(self):
-        print "Hello"
+        print( "Hello")
 
     def each_rental_string(self):
-        print "\t test \t"
+        print( "\t test \t")
 
     def footer_string(self):
-        print "You owe it"
+        print( "You owe it")
+
+h = Statement()
+if 'want to html state':
+    h = HtmlStatement()
+
+h.go()
+if 'wanto to text state':
+    h = TextStatement()
+h.go()
