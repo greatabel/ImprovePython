@@ -6,3 +6,11 @@ yell('hello')
 bark = yell
 
 bark('woof')
+
+try: 
+    del yell
+    yell('hello again')
+except:
+    print("This is an error message in yell() !")
+
+bark('hey')
