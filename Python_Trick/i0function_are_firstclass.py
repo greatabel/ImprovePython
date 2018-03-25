@@ -14,3 +14,5 @@ except:
     print("This is an error message in yell() !")
 
 bark('hey')
+
+print('bark.__name__ = ', bark.__name__)
