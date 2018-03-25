@@ -23,3 +23,7 @@ def whisper(text):
     return text.lower() + '...'
 
 greet(whisper)
+
+
+print('higher-order functions.')
+print(list(map(bark, ['hello', 'hi'])) )
