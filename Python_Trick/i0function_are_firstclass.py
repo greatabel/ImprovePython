@@ -15,4 +15,7 @@ except:
 
 bark('hey')
 
+print('Python attaches a string identifier to every function\
+ at creation time for debugging purposes')
 print('bark.__name__ = ', bark.__name__)
+
