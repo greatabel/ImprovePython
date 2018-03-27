@@ -5,6 +5,7 @@ class Adder:
     def __call__(self, x):
         return self.n + x
 
+
 plus_3 = Adder(3)
 r = plus_3(4)
 print(r)
