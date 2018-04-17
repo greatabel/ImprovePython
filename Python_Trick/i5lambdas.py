@@ -10,3 +10,11 @@ print(r1)
 
 r2 = sorted(range(-5, 6), key=lambda x: x * x)
 print(r2)
+
+def make_adder(n):
+    return lambda x: x + n
+
+plus_3 = make_adder(3)
+plus_5 = make_adder(5)
+print('plus_3(4)=', plus_3(4))
+print('plus_5(4)=', plus_5(4))
