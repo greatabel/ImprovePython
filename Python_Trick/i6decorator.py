@@ -7,3 +7,11 @@ def greet():
 a_greet = null_decorator(greet)
 r = a_greet()
 print(r)
+
+@null_decorator
+def greetA():
+    return "Hello A"
+
+
+ra = greetA()
+print(ra)
