@@ -5,7 +5,8 @@ def foo(requried, *args, **kwargs):
     if kwargs:
         print('2 kwargs=', kwargs)
 
-
+print(f'kwargs will collect extra keyword arguments as a \
+dictionary because the parameter name has a ** prefix.')
 
 foo('hello')
 foo('hello', 1, 2, 3)
