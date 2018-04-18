@@ -6,7 +6,7 @@ def proxy(func):
 def trace(func):
     def wrapper(*args, **kwargs):
         print(f'trace: calling {func.__name__}() '
-               f'with {args}, {kwargs}')
+               f'with {args}, ### ,{kwargs}')
         original_result = func(*args, **kwargs)
         print(f'trace: {func.__name__}() '
               f'returned {original_result}')
@@ -15,6 +15,6 @@ def trace(func):
 
 @trace
 def say(name, line):
-    return f'{name}: {line}'
+    return f'{name} @@@ {line}'
 
 say('Abel', 'Hello World!')
