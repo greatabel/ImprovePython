@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+print('namedtuples are a memory- efficient shortcut to defining \
+    an immutable class in Python manually.')
 
 Car = namedtuple('Car', [
     'color', 'mileage'])
