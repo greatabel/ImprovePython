@@ -17,7 +17,7 @@ def get_data_from_user():
 
 def print_results(results):
     for value,num_times in results:
-        print("{} = {}".format(value, num_times))
+        print("{} 出现次数 = {}".format(value, num_times))
 
 def analyze_data():
     data = get_data_from_user()
