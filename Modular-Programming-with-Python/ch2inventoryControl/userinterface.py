@@ -29,3 +29,82 @@ def prompt_for_action():
         elif action == "Q": return "QUIT"
         else:
             print("Unknown action!")
+
+def prompt_for_product():
+    """ Prompt the user to select a product.
+
+        We return the code for the selected product, or None if the user
+        cancelled.
+    """
+    while True:
+        print()
+        print("Select a product:")
+        print()
+        n = 1
+        for code,description,desired_number in datastorage.products():
+            print("  {}. {} - {}".format(n, code, description))
+            n = n + 1
+
+        s = input("> ").strip()
+        if s == "": return None
+
+        try:
+            n = int(s)
+        except ValueError:
+            n = -1
+
+        if n < 1 or n > len(datastorage.products()):
+            print("Invalid option: {}".format(s))
+            continue
+
+        product_code = datastorage.products()[n-1][0]
+        return product_code
+
+def prompt_for_location():
+    """ Prompt the user to select a location.
+
+        We return the code for the selected location, or None if the user
+        cancelled.
+    """
+    while True:
+        print()
+        print("Select a location:")
+        print()
+        n = 1
+        for code,description in datastorage.locations():
+            print("  {}. {} - {}".format(n, code, description))
+            n = n + 1
+
+        s = input("> ").strip()
+        if s == "": return None
+
+        try:
+            n = int(s)
+        except ValueError:
+            n = -1
+
+        if n < 1 or n > len(datastorage.locations()):
+            print("Invalid option: {}".format(s))
+            continue
+
+        location_code = datastorage.locations()[n-1][0]
+        return location_code
+
+def show_error(err_msg):
+    """ Display the given error message to the user.
+    """
+    print()
+    print(err_msg)
+    print()
+
+#############################################################################
+
+def show_report(report):
+    """ Display the given report to the user.
+
+        'report' is a list of strings containing the contents of the report.
+    """
+    print()
+    for line in report:
+        print(line)
+    print()

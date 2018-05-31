@@ -42,3 +42,55 @@ def set_locations(locations):
     """
     global _locations
     _locations = locations
+
+
+def add_item(product_code, location_code):
+    """ Add an item to the inventory with the given product code and location.
+    """
+    global _items
+    _items.append((product_code, location_code))
+    _save_items()
+    
+def remove_item(product_code, location_code):
+    """ Remove an inventory item with the given product code from the given location.
+
+        Returns True if and only if the item was successfully removed.
+    """
+    global _items
+    for i in range(len(_items)):
+        prod_code,loc_code = _items[i]
+        if prod_code == product_code and loc_code == location_code:
+            del _items[i]
+            _save_items()
+            return True
+    return False
+
+
+def _save_items():
+    """ Save the list of inventory items to disk.
+    """
+    global _items
+
+    f = open("items.json", "w")
+    f.write(json.dumps(_items))
+    f.close()
+
+def products():
+    """ Return a list of the known products.
+
+        We return a list of (code, description, desired_number) tuples
+        containing all the known inventory products.
+    """
+    global _products
+    return _products
+
+#############################################################################
+
+def locations():
+    """ Return a list of the known locations where inventory can be stored.
+
+        We return a list of (code, description) tuples containing all the known
+        inventory locations.
+    """
+    global _locations
+    return _locations

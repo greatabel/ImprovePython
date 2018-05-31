@@ -30,6 +30,21 @@ def main():
         action = userinterface.prompt_for_action()
         if action == "QUIT":
             break
+        elif action == "ADD":
+            product = userinterface.prompt_for_product()
+            if product != None:
+                location = userinterface.prompt_for_location()
+                if location != None:
+                    datastorage.add_item(product, location)
+        elif action == "REMOVE":
+            product = userinterface.prompt_for_product()
+            if product != None:
+                location = userinterface.prompt_for_location()
+                if location != None:
+                    if not datastorage.remove_item(product, location):
+                        userinterface.show_error("There is no product with " +
+                                                 "that code at that location!")
+
 
 if __name__ == "__main__":
     main()
