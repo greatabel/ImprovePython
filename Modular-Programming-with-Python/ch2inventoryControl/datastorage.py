@@ -7,6 +7,17 @@ def init():
     _load_items()
 
 
+def items():
+    """ Return a list of inventory items.
+
+        We return a list of inventory items.  Each item in the returned list
+        will be a (product_code, location_code) tuple.
+
+        Note that the returned list of items are not sorted in any way.
+    """
+    global _items
+    return _items
+    
 def _load_items():
     """ Load the list of inventory items from disk.
     """

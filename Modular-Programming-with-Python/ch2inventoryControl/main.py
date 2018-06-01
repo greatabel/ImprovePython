@@ -1,5 +1,6 @@
 import datastorage
 import userinterface
+import reportgenerator
 
 
 def main():
@@ -44,7 +45,12 @@ def main():
                     if not datastorage.remove_item(product, location):
                         userinterface.show_error("There is no product with " +
                                                  "that code at that location!")
-
+        elif action == "INVENTORY_REPORT":
+            report = reportgenerator.generate_inventory_report()
+            userinterface.show_report(report)
+        elif action == "REORDER_REPORT":
+            report = reportgenerator.generate_reorder_report()
+            userinterface.show_report(report)
 
 if __name__ == "__main__":
     main()
