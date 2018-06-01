@@ -7,3 +7,4 @@ def bar():
 my_var = 0
 
 print("importing test module")
+
