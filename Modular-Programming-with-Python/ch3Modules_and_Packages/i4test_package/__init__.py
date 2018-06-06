@@ -1,0 +1,1 @@
+from i4test_package.test_module import say_hello
