@@ -12,3 +12,6 @@ so I made the Python version demos of the book as an exercise.
 
 # 01Python_Trick folder 
 The book is (https://book.douban.com/subject/27193155/)
+
+# 02Modular-Programming-with-Python
+The book is (https://book.douban.com/subject/27193155/)
