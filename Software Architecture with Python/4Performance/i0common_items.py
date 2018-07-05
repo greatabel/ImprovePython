@@ -10,7 +10,7 @@ def setup(n):
     a1 = random.sample(range(0, 2*n), n)
     a2 = random.sample(range(0, 2*n), n)
 
-contextmanager
+@contextmanager
 def timer():
     try:
         start = timer_func()
@@ -45,3 +45,18 @@ def common_items_v2(seq1, seq2):
             pass
 
     return [item[0] for item in seq_dict1.items() if item[1]>1]
+
+
+def test(n, func):
+    """ Generate test data and perform test on a given function """
+    
+    a1=random.sample(range(0, 2*n), n)
+    a2=random.sample(range(0, 2*n), n)
+
+    with timer() as t:
+        result = func(a1, a2)
+
+if __name__ == "__main__":
+    import sys
+    test(int(sys.argv[1]), common_items_v1)
+    test(int(sys.argv[1]), common_items_v2)
